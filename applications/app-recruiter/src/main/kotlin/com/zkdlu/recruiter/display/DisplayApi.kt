@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class DisplayApi {
 
-    @GetMapping("/companies")
-    fun getCompanies(): List<Company> {
+    @GetMapping("/job-openings")
+    fun getJobOpenings(): List<JobOpenings> {
         return Company.values()
-            .asList()
+            .map { company -> JobOpenings(company, 20) }
     }
 }
