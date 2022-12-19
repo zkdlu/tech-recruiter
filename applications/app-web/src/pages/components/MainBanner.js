@@ -28,7 +28,7 @@ const MainBanner = () => {
     return (
       <StyledBanner>
         <StyledContent>
-          Tech Recuit
+          Tech Recuit 
         </StyledContent>
       </StyledBanner>
     )
