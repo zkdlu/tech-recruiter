@@ -15,13 +15,8 @@ const StyledBanner = styled.div`
 
 const StyledContent = styled.h1`
   font-size: 3.8rem;
-  font-weight: 700;
-  line-height: 5.1rem;
-  letter-spacing: 0;
   text-align: center;
   color: #fff;
-  padding: 0;
-  margin: 0;
 `;
 
 const MainBanner = () => {

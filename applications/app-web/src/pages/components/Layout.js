@@ -3,7 +3,13 @@ import Header from "./Header";
 import styled from 'styled-components'
 
 const StyledLayout = styled.div`
-  padding-top: 60px;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+width: 100%;
+min-width: 68.75rem;
+min-height: 100vh;
+position: relative;
 `;
 
 const StyledMain = styled.main`

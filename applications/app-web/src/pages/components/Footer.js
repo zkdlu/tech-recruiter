@@ -9,8 +9,6 @@ const StyledFooter = styled.footer`
 
 const StyledDiv = styled.div`
   display: flex;
-  width: 96%;
-  max-width: 1100px;
   height: 100%;
   margin: 0 auto;
   align-items: center;
