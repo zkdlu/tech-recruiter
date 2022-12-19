@@ -1,25 +1,19 @@
 import { Component } from "react";
 import CompanyList from './CompanyList'
 import styled from 'styled-components'
+import JobList from "./JobList";
 
 class MainContents extends Component {
   render() {
     const { jobOpenings, jobs } = this.props;
-    const jobList = jobs.map(job => 
-    <div>
-      <span>{job.name}</span>
-      <span>{job.until}</span>
-      <span>{job.tags}</span>
-    </div>
-    );
-
+    
     return (
       <div>
         <StyledFilterSection>
           <CompanyList jobOpenings={jobOpenings}/>
         </StyledFilterSection>
         <StyledJobSection>
-          {jobList}
+          <JobList jobs={jobs}/>
         </StyledJobSection>
       </div>
     )
