@@ -26,14 +26,14 @@ const StyledJob = styled.div`
   /* 그림자 */
   margin: 0 auto;
   /* 페이지 중앙 정렬 */
-  margin-top: 2rem;
+  margin-top: 3rem;
 `;
 
 const StyledJobName = styled.div`
   font-size: 2.5rem;
   text-align: center;
   font-weight: 600;
-  padding: 1rem;
+  padding-top: 2rem;
 `;
 
 const StyledJobUntil = styled.div`
