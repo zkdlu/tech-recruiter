@@ -4,10 +4,10 @@ import styled from 'styled-components'
 
 class CompanyList extends Component {
   render() {
-    const { jobOpenings } = this.props;
-    const companyList = jobOpenings.map(jobOpening => 
-      <StyledButton>{jobOpening.company}
-        <StyledSpan>{jobOpening.count}</StyledSpan>
+    const { jobStats } = this.props;
+    const companyList = jobStats.map(jobStat => 
+      <StyledButton>{jobStat.company}
+        <StyledSpan>{jobStat.count}</StyledSpan>
       </StyledButton>
     );
 
@@ -44,7 +44,6 @@ const StyledButton = styled.button`
 const StyledSpan = styled.span`
   background-color: #002034;
   display: inline-block;
-  min-width: 35px;
   height: 24px;
   margin: 0 7px;
   padding: 0 8px;

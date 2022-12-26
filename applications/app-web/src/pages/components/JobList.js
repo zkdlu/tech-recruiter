@@ -1,14 +1,11 @@
 import { Component } from "react";
-import styled from 'styled-components'
 import Job from "./Job";
 
 
 class JobList extends Component {
   render() {
-    const { jobs } = this.props;
-
-    console.log(jobs);
-    const jobList = jobs.map(
+    const { jobOpenings } = this.props;
+    const jobList = jobOpenings.map(
       ({id, name, until, tags}) => (
         <Job 
           key={id}

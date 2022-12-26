@@ -6,40 +6,36 @@ import MainContents from "./components/MainContents";
 
 class MainPage extends Component {
     state = {
+        jobStats: [],
         jobOpenings: [],
-        jobs: [],
     }
 
     async componentDidMount() {
+        await this.fetchJobStats();
         await this.fetchJobOpenings();
+    }
 
-        const { jobs } = this.state;
-
-        for (let i = 1; i < 100; i++) {
-            jobs.push({
-                id: i,
-                name: '공고' + i,
-                until: '2022-12-31',
-                tags: ['tag1', 'tag2']
-            })
-        }
+    async fetchJobStats() {
+        const jobStats = await api.get('job-stats');
+        this.setState({
+            jobStats: [...jobStats]
+        })
     }
 
     async fetchJobOpenings() {
         const jobOpenings = await api.get('job-openings');
-        console.log(jobOpenings)
         this.setState({
             jobOpenings: [...jobOpenings]
         })
     }
 
     render() {
-        const { jobOpenings, jobs } = this.state;
+        const { jobStats, jobOpenings } = this.state;
 
         return (
             <Layout>
                 <MainBanner/>
-                <MainContents jobOpenings={jobOpenings} jobs={jobs}/>
+                <MainContents jobStats={jobStats} jobOpenings={jobOpenings}/>
             </Layout>
         )
     }

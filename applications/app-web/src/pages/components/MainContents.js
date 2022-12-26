@@ -5,15 +5,15 @@ import JobList from "./JobList";
 
 class MainContents extends Component {
   render() {
-    const { jobOpenings, jobs } = this.props;
+    const { jobStats, jobOpenings } = this.props;
     
     return (
       <div>
         <StyledFilterSection>
-          <CompanyList jobOpenings={jobOpenings}/>
+          <CompanyList jobStats={jobStats}/>
         </StyledFilterSection>
         <StyledJobSection>
-          <JobList jobs={jobs}/>
+          <JobList jobOpenings={jobOpenings}/>
         </StyledJobSection>
       </div>
     )
