@@ -16,12 +16,13 @@ class DisplayApi {
 
     @GetMapping("/job-openings")
     fun getJobOpenings(): List<JobOpenings> {
+        val until = LocalDateTime.of(2023, 1, 28, 0, 0)
         return listOf(
-            JobOpenings("공고1", Company.Baemin, LocalDateTime.MAX, listOf("java")),
-            JobOpenings("공고2", Company.Baemin, LocalDateTime.MAX, listOf("java", "spring")),
-            JobOpenings("공고3", Company.Toss, LocalDateTime.MAX, listOf("kotlin")),
-            JobOpenings("공고4", Company.Toss, LocalDateTime.MAX, listOf("react")),
-            JobOpenings("공고5", Company.Toss, LocalDateTime.MAX, listOf("front")),
+            JobOpenings("공고1", Company.Baemin, until, listOf("java")),
+            JobOpenings("공고2", Company.Baemin, until, listOf("java", "spring")),
+            JobOpenings("공고3", Company.Toss, until, listOf("kotlin")),
+            JobOpenings("공고4", Company.Toss, until, listOf("react")),
+            JobOpenings("공고5", Company.Toss, until, listOf("front")),
         )
     }
 }
