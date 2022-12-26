@@ -1,6 +1,8 @@
 package com.zkdlu.recruiter.job.toss
 
+import com.fasterxml.jackson.annotation.JsonFormat
 import com.fasterxml.jackson.annotation.JsonProperty
+import java.time.LocalDateTime
 
 class TossJob(
     @JsonProperty(value = "absolute_url")
@@ -13,9 +15,9 @@ class TossJob(
     val location: TossJobLocation,
     @JsonProperty(value = "title")
     val title: String,
-//    @JsonProperty(value = "updated_at")
-//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-//    val updatedAt: LocalDateTime,
+    @JsonProperty(value = "updated_at")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss-05:00")
+    val updatedAt: LocalDateTime,
     @JsonProperty(value = "metadata")
     val metadata: List<TossJobMeta> = mutableListOf()
 )
