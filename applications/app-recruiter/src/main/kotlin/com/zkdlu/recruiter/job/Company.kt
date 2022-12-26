@@ -1,4 +1,4 @@
-package com.zkdlu.recruiter.company
+package com.zkdlu.recruiter.job
 
 enum class Company {
     Baemin,

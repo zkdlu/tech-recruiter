@@ -1,6 +1,6 @@
 package com.zkdlu.recruiter.display
 
-import com.zkdlu.recruiter.company.Company
+import com.zkdlu.recruiter.job.Company
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RestController
 import java.time.LocalDateTime
