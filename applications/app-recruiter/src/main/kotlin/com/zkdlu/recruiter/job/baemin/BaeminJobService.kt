@@ -7,9 +7,23 @@ class BaeminJobService(
     private val baeminClient: BaeminClient,
 ) {
 
-    fun todo() {
-        val codes = baeminClient.getBaeminCodes()
+    fun getJobs(): List<BaeminJob> {
+        val codes = getCodes()
+        val groupStats = getGroupStats()
 
-        println(codes)
+        return groupStats.map { stat -> getJobs(stat) }
+            .flatMap { jobs -> jobs.list }
+    }
+
+    private fun getJobs(jobGroupStat: BaeminJobGroupStat): BaeminJobs {
+        return baeminClient.getJobs("jobGroupCodes:${jobGroupStat.code}", 0, jobGroupStat.count).data
+    }
+
+    private fun getGroupStats(): List<BaeminJobGroupStat> {
+        return baeminClient.getBaeminJobGroupStats().data
+    }
+
+    private fun getCodes(): List<BaeminJobCode> {
+        return baeminClient.getBaeminCodes().data
     }
 }
