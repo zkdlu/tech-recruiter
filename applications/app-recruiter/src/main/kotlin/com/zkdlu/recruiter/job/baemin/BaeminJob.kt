@@ -37,9 +37,9 @@ class BaeminJobs(
 
 class BaeminJob(
     @JsonProperty(value = "recruitSeq")
-    val seq: Long,
+    val id: Long,
     @JsonProperty(value = "recruitNumber")
-    val id: String,
+    val internalJobId: String,
     @JsonProperty(value = "recruitName")
     val title: String,
     @JsonProperty(value = "recruitCloseDate")
