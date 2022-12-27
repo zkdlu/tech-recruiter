@@ -16,7 +16,7 @@ class TossJob(
     @JsonProperty(value = "title")
     val title: String,
     @JsonProperty(value = "updated_at")
-    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss-05:00")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss[xxx]")
     val updatedAt: LocalDateTime,
     @JsonProperty(value = "metadata")
     val metadata: List<TossJobMeta> = mutableListOf()
