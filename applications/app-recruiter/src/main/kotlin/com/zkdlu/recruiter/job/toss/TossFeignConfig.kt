@@ -7,16 +7,12 @@ import org.springframework.boot.autoconfigure.http.HttpMessageConverters
 import org.springframework.cloud.openfeign.support.HttpMessageConverterCustomizer
 import org.springframework.cloud.openfeign.support.SpringDecoder
 import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Configuration
 
-@Configuration
-class TossFeignConfig(
-    private val messageConverters: ObjectFactory<HttpMessageConverters>,
-    private val messageConverterCustomizer: ObjectProvider<HttpMessageConverterCustomizer>,
-    private val objectMapper: ObjectMapper,
-) {
+class TossFeignConfig {
     @Bean
-    fun decoder(): TossFeignDecoder {
+    fun decoder(messageConverters: ObjectFactory<HttpMessageConverters>,
+                messageConverterCustomizer: ObjectProvider<HttpMessageConverterCustomizer>,
+                objectMapper: ObjectMapper): TossFeignDecoder {
         return TossFeignDecoder(SpringDecoder(messageConverters, messageConverterCustomizer), objectMapper)
     }
 }
