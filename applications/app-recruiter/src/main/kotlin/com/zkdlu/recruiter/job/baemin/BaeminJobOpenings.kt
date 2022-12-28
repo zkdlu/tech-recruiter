@@ -8,5 +8,6 @@ class BaeminJobOpenings(
     val id: Long,
     val title: String,
     val until: LocalDateTime,
+    val url: String,
     val keywords: List<String> = listOf(),
 )

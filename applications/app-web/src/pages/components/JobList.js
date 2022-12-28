@@ -6,11 +6,12 @@ class JobList extends Component {
   render() {
     const { jobOpenings } = this.props;
     const jobList = jobOpenings.map(
-      ({id, name, until, tags}) => (
+      ({id, name, until, url, tags}) => (
         <Job 
           key={id}
           name={name}
           until={until}
+          url={url}
           tags={tags}/>));
 
     return (

@@ -14,10 +14,10 @@ class JobServiceFacade(
 
     fun getJob(): List<Job> {
         val tossJobs = tossJobService.getJobs()
-            .map { tossJob -> Job(Company.Toss, tossJob.id, tossJob.title, LocalDateTime.MAX, getKeywords(tossJob.keyword)) }
+            .map { tossJob -> Job(Company.Toss, tossJob.title, LocalDateTime.MAX, tossJob.url, getKeywords(tossJob.keyword)) }
 
         val baeminJobs = baeminJobService.getJobs()
-            .map { baeminJob -> Job(Company.Baemin, baeminJob.id, baeminJob.title, baeminJob.until, baeminJob.keywords) }
+            .map { baeminJob -> Job(Company.Baemin, baeminJob.title, baeminJob.until, baeminJob.url, baeminJob.keywords) }
 
         return listOf(
             tossJobs,

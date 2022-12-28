@@ -4,8 +4,8 @@ import java.time.LocalDateTime
 
 class Job(
     val company: Company,
-    val companyJobId: Long,
     val title: String,
     val until: LocalDateTime,
+    val url: String,
     val keywords: List<String> = listOf(),
 )

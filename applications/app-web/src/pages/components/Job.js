@@ -3,11 +3,11 @@ import styled from 'styled-components'
 
 class Job extends Component {
   render() {
-    const { name, until, tags } = this.props;
+    const { name, until, tags, url } = this.props;
     const tagList = tags.map(tag => <button># {tag}</button>);
 
     return (
-      <StyledJob>
+      <StyledJob onClick={() => window.location.href = url}>
         <StyledJobName>{name}</StyledJobName>
         <StyledJobUntil>{until}</StyledJobUntil>
         <StyledJobTags>{tagList}</StyledJobTags>

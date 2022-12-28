@@ -19,6 +19,6 @@ class DisplayApi(
     @GetMapping("/job-openings")
     fun getJobOpenings(): List<JobOpenings> {
         return jobServiceFacade.getJob()
-            .map { job -> JobOpenings(job.title, job.company, job.until, job.keywords) }
+            .map { job -> JobOpenings(job.title, job.company, job.until, job.url, job.keywords) }
     }
 }

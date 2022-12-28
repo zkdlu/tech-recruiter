@@ -49,6 +49,9 @@ class BaeminJob(
     keywords: List<BaeminKeyword>? = listOf()
 ) {
     val keywords: List<BaeminKeyword> = keywords ?: listOf()
+
+    val url: String
+        get() = "https://career.woowahan.com/recruitment/${internalJobId}/detail"
 }
 
 class BaeminKeyword(

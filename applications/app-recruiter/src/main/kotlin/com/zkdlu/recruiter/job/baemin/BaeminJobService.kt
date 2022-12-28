@@ -14,7 +14,7 @@ class BaeminJobService(
 
         return groupStats.map { stat -> getJobs(stat) }
             .flatMap { jobs -> jobs.list }
-            .map { job -> BaeminJobOpenings(Company.Baemin, job.id, job.title, job.until, getMatchedKeywords(job.keywords, codes)) }
+            .map { job -> BaeminJobOpenings(Company.Baemin, job.id, job.title, job.until, job.url, getMatchedKeywords(job.keywords, codes)) }
     }
 
     private fun getMatchedKeywords(keywords: List<BaeminKeyword>, codes: List<BaeminJobCode>): List<String> {
