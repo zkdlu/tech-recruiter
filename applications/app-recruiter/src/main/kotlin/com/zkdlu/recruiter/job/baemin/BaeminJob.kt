@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty
 import java.time.LocalDateTime
 
 
-class BaeminResponse<T> (
+class BaeminResponse<T>(
     @JsonProperty(value = "code")
     val code: String,
     @JsonProperty(value = "message")
@@ -46,8 +46,10 @@ class BaeminJob(
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     val until: LocalDateTime,
     @JsonProperty(value = "keywords")
-    val keywords: List<BaeminKeyword>? = listOf()
-)
+    keywords: List<BaeminKeyword>? = listOf()
+) {
+    val keywords: List<BaeminKeyword> = keywords ?: listOf()
+}
 
 class BaeminKeyword(
     @JsonProperty(value = "recruitItemGroupCode")

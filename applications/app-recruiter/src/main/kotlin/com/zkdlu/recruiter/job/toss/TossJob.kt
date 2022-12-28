@@ -20,20 +20,14 @@ class TossJob(
     val updatedAt: LocalDateTime,
     @JsonProperty(value = "metadata")
     val metadata: List<TossJobMeta> = mutableListOf()
-)
+) {
 
-class TossJobLocation(
-    @JsonProperty(value = "name")
-    val name: String,
-)
+    val keyword: TossJobMeta
+        get() {
+            return metadata.first { metadata -> TossJobMetaType.Keyword.id == metadata.id }
+        }
+}
 
-class TossJobMeta(
-    @JsonProperty(value = "id")
-    val id: Long,
-    @JsonProperty(value = "name")
-    val name: String,
-    @JsonProperty(value = "value")
-    val value: String?,
-    @JsonProperty(value = "value_type")
-    val valueType: String,
-)
+class TossJobLocation(@JsonProperty(value = "name") val name: String)
+class TossJobMeta(@JsonProperty(value = "id") val id: Long, @JsonProperty(value = "value") val value: String?)
+
