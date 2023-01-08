@@ -10,5 +10,9 @@ dependencies {
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.3")
 
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    runtimeOnly("com.h2database:h2")
+    runtimeOnly("org.mariadb.jdbc:mariadb-java-client") // MariaDB
+//    runtimeOnly("com.h2database:h2") // H2
+//    runtimeOnly("com.microsoft.sqlserver:mssql-jdbc") // MSSQL
+//    runtimeOnly("mysql:mysql-connector-java") // MYSQL
+//    runtimeOnly("org.postgresql:postgresql") // PostgreSQL
 }
