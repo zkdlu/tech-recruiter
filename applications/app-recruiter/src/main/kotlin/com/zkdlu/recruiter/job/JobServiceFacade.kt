@@ -17,4 +17,10 @@ class JobServiceFacade(
 
         jobOpeningRepository.saveAll(jobOpenings)
     }
+
+    fun getJobStats(): List<JobStats> {
+        return jobOpeningRepository.findAll()
+            .groupBy { jobOpening -> jobOpening.company }
+            .map { jobGroup -> JobStats(jobGroup.key, jobGroup.value.size) }
+    }
 }
