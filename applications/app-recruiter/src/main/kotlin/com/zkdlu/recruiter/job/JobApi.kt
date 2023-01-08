@@ -8,8 +8,8 @@ class JobApi(
     private val jobService: JobServiceFacade,
 ) {
 
-    @GetMapping("/jobs")
-    fun getJobs(): List<Job> {
+    @GetMapping("/job-openings")
+    fun getJobOpenings(): List<JobOpenings> {
         return jobService.getJob()
     }
 }
