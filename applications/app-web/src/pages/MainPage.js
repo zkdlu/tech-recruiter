@@ -16,7 +16,7 @@ class MainPage extends Component {
     }
 
     async fetchJobStats() {
-        const jobStats = await api.get('job-stats');
+        const jobStats = await api.get('job-openings/stats');
         this.setState({
             jobStats: [...jobStats]
         })
