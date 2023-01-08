@@ -17,7 +17,6 @@ class BaeminJobService(
         return groupStats.map { stat -> getJobs(stat) }
             .flatMap { jobs -> jobs.list }
             .map { job -> JobOpenings(Company.Baemin, job.title, job.url, job.until, getMatchedKeywords(job.keywords, codes)) }
-        TODO("Not yet implemented")
     }
 
     private fun getMatchedKeywords(keywords: List<BaeminKeyword>, codes: List<BaeminJobCode>): List<String> {

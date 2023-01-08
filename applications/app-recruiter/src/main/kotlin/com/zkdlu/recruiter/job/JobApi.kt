@@ -12,4 +12,9 @@ class JobApi(
     fun getJobOpenings(): List<JobOpenings> {
         return jobService.getJob()
     }
+
+    @GetMapping("/job-openings/collect")
+    fun collectJobOpenings() {
+        jobService.collectJobOpenings()
+    }
 }
