@@ -8,8 +8,12 @@ class JobServiceFacade(
     private val jobOpeningRepository: JopOpeningRepository
 ) {
 
-    fun getJob(): List<JobOpenings> {
+    fun getJobs(): List<JobOpenings> {
         return jobOpeningRepository.findAll()
+    }
+
+    fun getJobsByCompany(company: Company): List<JobOpenings> {
+        return jobOpeningRepository.findAllByCompany(company)
     }
 
     fun collectJobOpenings() {
