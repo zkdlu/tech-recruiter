@@ -7,7 +7,7 @@ class Job extends Component {
     const tagList = tags.map(tag => <button># {tag}</button>);
 
     return (
-      <StyledJob onClick={() => window.location.href = url}>
+      <StyledJob onClick={() => window.open(url, '_blank')}>
         <StyledJobName>{name}</StyledJobName>
         <StyledJobUntil>{until}</StyledJobUntil>
         <StyledJobTags>{tagList}</StyledJobTags>
