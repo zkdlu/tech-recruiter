@@ -5,8 +5,8 @@ import styled from 'styled-components'
 class CompanyList extends Component {
   render() {
     const { jobStats, onSelectFilter } = this.props;
-    const companyList = jobStats.map(jobStat => 
-      <StyledButton onClick={() => onSelectFilter(jobStat.company)}>{jobStat.company}
+    const companyList = jobStats.map((jobStat, index) => 
+      <StyledButton key={index} onClick={() => onSelectFilter(jobStat.company)}>{jobStat.company}
         <StyledSpan>{jobStat.count}</StyledSpan>
       </StyledButton>
     );

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 class Job extends Component {
   render() {
     const { name, until, tags, url } = this.props;
-    const tagList = tags.map(tag => <button># {tag}</button>);
+    const tagList = tags.map((tag, index) => <button key={index}># {tag}</button>);
 
     return (
       <StyledJob onClick={() => window.open(url, '_blank')}>
