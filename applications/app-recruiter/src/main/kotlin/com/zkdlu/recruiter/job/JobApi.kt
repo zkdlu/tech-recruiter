@@ -10,8 +10,11 @@ class JobApi(
 ) {
 
     @GetMapping("/job-openings")
-    fun getJobOpenings(): List<JobOpenings> {
-        return jobService.getJobs()
+    fun getJobOpenings(
+        size: Int = 10,
+        page: Int = 0,
+    ): List<JobOpenings> {
+        return jobService.getJobs(page, size)
     }
 
     @GetMapping("/job-openings/{company}")

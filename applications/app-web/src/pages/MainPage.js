@@ -6,13 +6,22 @@ import MainContents from "./components/MainContents";
 
 class MainPage extends Component {
     state = {
+        page: 0,
+        size: 10,
         jobStats: [],
         jobOpenings: [],
     }
 
     async componentDidMount() {
+        const { size, page } = this.state;
+
         await this.fetchJobStats();
-        await this.fetchJobOpenings();
+        await this.fetchJobOpenings(size, page);
+    }
+
+    loadMore = async () => {
+        const { size, page } = this.state;
+        await this.fetchJobOpenings(size, page + 1);
     }
 
     async fetchJobStats() {
@@ -22,10 +31,17 @@ class MainPage extends Component {
         })
     }
 
-    async fetchJobOpenings() {
-        const jobOpenings = await api.get('job-openings');
+    async fetchJobOpenings(size, page) {
+        const jobOpenings = await api.get('job-openings', {
+            params: {
+                size: size,
+                page: page
+            }
+        });
+
         this.setState({
-            jobOpenings: [...jobOpenings]
+            jobOpenings: [...jobOpenings],
+            page: page
         })
     }
 
@@ -38,13 +54,13 @@ class MainPage extends Component {
 
     render() {
         const { jobStats, jobOpenings } = this.state;
-        const { handleFetchJobOpeningsByCompany } = this;
+        const { handleFetchJobOpeningsByCompany, loadMore } = this;
 
         return (
             <Layout>
                 <MainBanner />
                 <MainContents jobStats={jobStats} jobOpenings={jobOpenings}
-                    onSelectFilter={handleFetchJobOpeningsByCompany}
+                    onSelectFilter={handleFetchJobOpeningsByCompany} onClickMore={loadMore}
                 />
             </Layout>
         )
